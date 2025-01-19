@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom gradient background */
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Smooth transition effects */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Button base styles */
+        .button-base {
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button-base:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .button-base:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.6); /* Gold glow on focus */
+        }
+
+        /* New Game Button */
+        .button-new-game {
+            background-color: #FF6347; /* Tomato red */
+            color: white;
+        }
+
+        .button-new-game:hover {
+            background-color: #FF4500; /* Darker red */
+        }
+
+        /* Submit Button */
+        .button-submit {
+            background-color: #32CD32; /* Lime green */
+            color: white;
+        }
+
+        .button-submit:hover {
+            background-color: #228B22; /* Darker green */
+        }
+
+        /* Solve Button */
+        .button-solve {
+            background-color: #FFA500; /* Orange */
+            color: white;
+        }
+
+        .button-solve:hover {
+            background-color: #FF8C00; /* Darker orange */
+        }
+
+        /* Sudoku input styles */
+        .sudoku-input {
+            text-align: center;
+            border: 2px solid #6B46C1; /* Darker purple */
+            background-color: #4C51BF; /* Blue-ish purple */
+            color: #F7FAFC; /* Light text */
+            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .sudoku-input:focus {
+            outline: none;
+            border-color: #FFED4A; /* Yellow focus border */
+            box-shadow: 0 0 0 2px rgba(255, 237, 74, 0.6);
+        }
+
+        /* Empty cells style */
+        .sudoku-input.empty {
+            background-color: #2D3748; /* Darker grey for empty cells */
+        }
+
+        /* Banner animation */
+        .banner {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .banner.hidden {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-xl w-full transition-all">
+        <h1 class="text-3xl font-bold text-center text-white mb-6">Sudoku Game</h1>
+
+        <div id="banner" class="text-center mb-4 text-lg font-semibold text-green-500 banner hidden"></div>
+
+        <div id="sudoku-board" class="grid grid-cols-9 gap-1">
+            <!-- Sudoku cells will be dynamically generated here -->
+        </div>
+
+        <div class="text-center mt-6">
+            <button id="new-game-btn" class="button-base button-new-game transition-all mr-4">New Game</button>
+            <button id="submit-btn" class="button-base button-submit transition-all mr-4">Submit</button>
+            <button id="solve-btn" class="button-base button-solve transition-all">Solve</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
